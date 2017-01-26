@@ -13,14 +13,15 @@ def main():
 	print "3.-hill"
 
 
-	num = int(raw_input("Introduce el numero del cifrado deceado:"))
+	num = int(raw_input("Introduce el numero del cifrado deseado:"))
 
 	if num==1:
 		desp = int(raw_input("Introduce el numero para el desplazamiento:"))
 		x = cesar(cadena.upper(),desp)
-		print cesar(cadena.upper(),desp)
+		print x
 		print "Mensaje descifrado"
-		print descifradorcesar(x,2)
+		print descifradorcesar(x,desp)
+		raw_input()
 
 
 def cesar(cadena,Px):
