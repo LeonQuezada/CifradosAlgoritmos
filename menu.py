@@ -16,12 +16,11 @@ def main():
 	num = int(raw_input("Introduce el numero del cifrado deceado:"))
 
 	if num==1:
-		x = cesar(cadena.upper(),2)
-		print cesar(cadena.upper(),2)
+		desp = int(raw_input("Introduce el numero para el desplazamiento:"))
+		x = cesar(cadena.upper(),desp)
+		print cesar(cadena.upper(),desp)
 		print "Mensaje descifrado"
 		print descifradorcesar(x,2)
-		
-	raw_input()
 
 
 def cesar(cadena,Px):
