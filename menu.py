@@ -21,26 +21,16 @@ def main():
 
 def cesar(cadena,Px):
 	letras=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","n","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+	letras = letras + letras + letras
 	letra = ""
 	longitud = len(cadena)
 	for i in range(longitud):
-	    for j in range(27):
-	        if cadena[i] == " ":
-	            letra = letra + " "
-	        else:
-	            if cadena[i] == letras[j]:
-	                if cadena[i] == "Z":
-	                    l= letras[Px-1];
-	                    letra = letra + l
-	                elif cadena[i] == "Y":
-	                    l= letras[Px-2];
-	                    letra = letra + l
-	                elif cadena[i] == "X":
-	                    l= letras[Px-3];
-	                    letra = letra + l  
-	                else:
-	                    l= letras[j+Px];
-	                    letra = letra + l
+		if cadena[i] == " ":
+			letra = letra + " "
+		for j in range(27):
+			if cadena[i] == letras[j]:
+				letra =letra + letras[j+Px]
+
 	return letra                    
 
 if __name__ == "__main__":
