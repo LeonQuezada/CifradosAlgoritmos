@@ -31,7 +31,23 @@ def cesar(cadena,Px):
 			if cadena[i] == letras[j]:
 				letra =letra + letras[j+Px]
 
-	return letra                    
+	return letra 
+
+def descifradorcesar(cadena,Px):
+	letras=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","n","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+	letras = letras + letras + letras
+	letra = ""
+	longitud = len(cadena)
+	for i in range(longitud):
+		if cadena[i] == " ":
+			letra = letra + " "
+		for j in range(27):
+			if cadena[i] == letras[j]:
+				letra =letra + letras[j+Px]
+
+	return letra 
+
+
 
 if __name__ == "__main__":
     main()
