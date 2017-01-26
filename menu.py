@@ -16,7 +16,10 @@ def main():
 	num = int(raw_input("Introduce el numero del cifrado deceado:"))
 
 	if num==1:
+		x = cesar(cadena.upper(),2)
 		print cesar(cadena.upper(),2)
+		print "Mensaje descifrado"
+		print descifradorcesar(x,2)
 
 
 def cesar(cadena,Px):
@@ -43,7 +46,7 @@ def descifradorcesar(cadena,Px):
 			letra = letra + " "
 		for j in range(27):
 			if cadena[i] == letras[j]:
-				letra =letra + letras[j+Px]
+				letra =letra + letras[j-Px]
 
 	return letra 
 
