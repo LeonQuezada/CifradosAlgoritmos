@@ -20,6 +20,8 @@ def main():
 		print cesar(cadena.upper(),2)
 		print "Mensaje descifrado"
 		print descifradorcesar(x,2)
+		
+	raw_input()
 
 
 def cesar(cadena,Px):
