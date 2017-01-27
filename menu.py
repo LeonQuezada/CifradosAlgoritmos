@@ -25,7 +25,9 @@ def main():
 		
 	if num == 2:
 		llave = raw_input("Introduzca una llave: ")
-		print vigenere(cadena.upper(), llave.upper())
+		m1 = vigenere(cadena.upper(), llave.upper())
+		print "Mensaje cifrado: ",m1
+		print "descifrado: ",descifradoVigenere(m1,llave)
 
 	if num == 3:
 		desp = int(raw_input("Introduce el numero para el desplazamiento:"))
@@ -85,7 +87,6 @@ def vigenere (mensaje, llave):
 		count = (count + 1)
 		if (count == len(llave)):
 			count = 0
-	print llaveIntermedia
 	C1 = ""
 	numero = 26
 	for i in range(len(mensaje)):	
@@ -100,6 +101,39 @@ def vigenere (mensaje, llave):
 			C1 = C1 + recta[pos-1]
 		
 	return C1
+	
+def descifradoVigenere(cifrado, llave):
+	recta = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+	cifrado = cifrado.upper()
+	llave = llave.upper()
+	mensaje = ""
+	
+	llaveIntermedia = ""
+	count = 0
+	for i in range(len(cifrado)):
+		if cifrado[i] == " ":
+			llaveIntermedia = llaveIntermedia + " "
+			count = count - 1
+		else:
+			llaveIntermedia = llaveIntermedia + llave[count]
+		count = (count + 1)
+		if (count == len(llave)):
+			count = 0
+	
+	for i in range(len(cifrado)):
+		if cifrado[i] == " ":
+			mensaje = mensaje + " "
+		else:	
+			i1 = buscarI(cifrado[i])
+			i2 = buscarI(llaveIntermedia[i])
+			indice =  i1 - i2
+			if indice > 26:
+				indice = indice - 26
+			elif indice < -26:
+				indice = indice + 26
+			mensaje = mensaje + recta[indice-1]
+		
+	return mensaje
 
 def desplazamientoAlberti(num):
 	a2="gklnprtuz&xysomqihfdbace"
