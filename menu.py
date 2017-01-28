@@ -18,10 +18,9 @@ def main():
 	if num==1:
 		desp = int(raw_input("Introduce el numero para el desplazamiento:"))
 		x = cesar(cadena.upper(),desp)
-		print x
+		print cesar(cadena.upper(),desp)
 		print "Mensaje descifrado"
 		print descifradorcesar(x,desp)
-		raw_input()
 		
 	if num == 2:
 		llave = raw_input("Introduzca una llave: ")
