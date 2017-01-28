@@ -36,7 +36,7 @@ def main():
 		print descifradoAlberti(x,desp)
 
 def cesar(cadena,Px):
-	letras=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+	letras=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","n","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 	letras = letras + letras + letras
 	letra = ""
 	longitud = len(cadena)
@@ -50,7 +50,7 @@ def cesar(cadena,Px):
 	return letra 
 
 def descifradorcesar(cadena,Px):
-	letras=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+	letras=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","n","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 	letras = letras + letras + letras
 	letra = ""
 	longitud = len(cadena)
