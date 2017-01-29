@@ -1,10 +1,15 @@
 #! /usr/bin/python
 # -*- coding: latin-1 -*-
+import sys
 
 def main():
-	cadena = raw_input("Introduce una cadena de texto para que sea cifrada:")
+	archivo = open(sys.argv[1])
+	for linea in archivo.readlines():
+		print ""
+
+	cadena = linea
 	print " "
-	print "La cadena que ingreso es:",cadena
+	print "La cadena que ingreso es:",linea
 	print " "
 	print "Selecione el tipo de cifrado:"
 	print " "
@@ -22,11 +27,15 @@ def main():
 		print "Mensaje descifrado"
 		print descifradorcesar(x,desp)
 		
+		creartxt()
+		grabartxt(cesar(cadena.upper(),desp))
+		
 	if num == 2:
 		llave = raw_input("Introduzca una llave: ")
 		m1 = vigenere(cadena.upper(), llave.upper())
 		print "Mensaje cifrado: ",m1
 		print "descifrado: ",descifradoVigenere(m1,llave)
+
 
 	if num == 3:
 		desp = int(raw_input("Introduce el numero para el desplazamiento:"))
@@ -34,6 +43,9 @@ def main():
 		print "Mensaje descifrado"
 		x = cifradoAlberti(cadena.upper(),desp)
 		print descifradoAlberti(x,desp)
+
+		creartxt()
+		grabartxt(x)
 
 def cesar(cadena,Px):
 	letras=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","n","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -171,6 +183,18 @@ def descifradoAlberti(cadena,num):
 			if cadena[i] == a1[j]:
 				salida = salida + a2[j]
 	return salida
+
+
+
+
+def creartxt():
+    archi=open('salida.txt','w')
+    archi.close()
+
+def grabartxt(x):
+    archi=open('salida.txt','a')
+    archi.write(x)
+    archi.close()
 	
 if __name__ == "__main__":
     main()
