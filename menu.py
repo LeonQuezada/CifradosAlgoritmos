@@ -4,9 +4,15 @@ import sys
 
 def main():
 	archivo = open(sys.argv[1])
-	for linea in archivo.readlines():
-		print ""
-
+	n = 0
+	linea = []
+	linea.append(archivo.readline().strip().upper())
+	while linea[n] != "":
+		linea.append(archivo.readline().strip().upper())
+		n = n + 1
+	#for linea in archivo.readlines():
+		#print ""
+	linea.pop()
 	cadena = linea
 	print " "
 	print "La cadena que ingreso es:",linea
@@ -22,30 +28,43 @@ def main():
 
 	if num==1:
 		desp = int(raw_input("Introduce el numero para el desplazamiento:"))
-		x = cesar(cadena.upper(),desp)
-		print cesar(cadena.upper(),desp)
-		print "Mensaje descifrado"
-		print descifradorcesar(x,desp)
-		
 		creartxt()
-		grabartxt(cesar(cadena.upper(),desp))
+		for n in range(len(cadena)):
+			x = cesar(cadena[n],desp)
+			grabartxt(x)
+		print "Terminado"
+		#x = cesar(cadena,desp)
+		#print cesar(cadena,desp)
+		#print "Mensaje descifrado"
+		#print descifradorcesar(x,desp)
+		
+		#creartxt()
+		#grabartxt(cesar(cadena,desp))
 		
 	if num == 2:
+		creartxt()
 		llave = raw_input("Introduzca una llave: ")
-		m1 = vigenere(cadena.upper(), llave.upper())
-		print "Mensaje cifrado: ",m1
-		print "descifrado: ",descifradoVigenere(m1,llave)
+		for n in range(len(cadena)):
+			grabartxt(vigenere(cadena[n],llave.upper()))
+		print "Terminado"
+		#m1 = vigenere(cadena, llave)
+		#print "Mensaje cifrado: ",m1
+		#print "descifrado: ",descifradoVigenere(m1,llave)
 
 
 	if num == 3:
 		desp = int(raw_input("Introduce el numero para el desplazamiento:"))
-		print cifradoAlberti(cadena.upper(),desp)
-		print "Mensaje descifrado"
-		x = cifradoAlberti(cadena.upper(),desp)
-		print descifradoAlberti(x,desp)
-
 		creartxt()
-		grabartxt(x)
+		for n in range(len(cadena)):
+			grabartxt(cifradoAlberti(cadena[n],desp))
+		print "Terminado"
+		#print cifradoAlberti(cadena,desp)
+		#print "Mensaje descifrado"
+		#x = cifradoAlberti(cadena,desp)
+		#print descifradoAlberti(x,desp)
+
+		#creartxt()
+		#grabartxt(x)
 
 def cesar(cadena,Px):
 	letras=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","n","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -100,7 +119,7 @@ def vigenere (mensaje, llave):
 			count = 0
 	C1 = ""
 	numero = 26
-	for i in range(len(mensaje)):	
+	for i in range(len(mensaje)):
 		if mensaje[i] == " ":
 			C1 = C1 + " "
 			i = i - 1
@@ -193,7 +212,7 @@ def creartxt():
 
 def grabartxt(x):
     archi=open('salida.txt','a')
-    archi.write(x)
+    archi.write(x+"\n")
     archi.close()
 	
 if __name__ == "__main__":
