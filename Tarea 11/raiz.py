@@ -5,6 +5,7 @@ import sys
 def main():
 	x = int(sys.argv[1])
 	print raizPrimo(x)
+	print fbPrimalidad(x)
 	#print fermat_test(x)
 
 def raizPrimo(x):
@@ -34,6 +35,18 @@ def mod(x):
             tamano = tamano - 1
         
         return ['Numero de Pasos:' + str(contadorPasos), 'Numero de divisiones posibles:' + str(contadorDivisiones)] 
+
+	def fermat_test(n,k=100):
+
+		for i in range (0,k):
+
+			a=random.randint(1,n-1)
+
+			if modex(a,n-1,n) != 1:
+
+				return False
+
+		return True
      
 
 if __name__ == '__main__':
