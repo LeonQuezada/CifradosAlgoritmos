@@ -1,7 +1,6 @@
 package main;
 
 import java.util.Scanner;
-
 import hashing.HashCore;
 
 public class HashSencillo {
@@ -24,6 +23,7 @@ public class HashSencillo {
 			
 			if(entrada.trim().startsWith("1")){
 				//llamar a HashCore.Hash();
+				hCore = new HashCore();
 			}
 			else{
 				System.exit(0);
