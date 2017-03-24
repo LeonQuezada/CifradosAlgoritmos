@@ -24,6 +24,10 @@ public class HashSencillo {
 			if(entrada.trim().startsWith("1")){
 				//llamar a HashCore.Hash();
 				hCore = new HashCore();
+				String direccion;
+				System.out.println("Inserte la direccion de un archivo");
+				direccion = sc.nextLine();
+				hCore.hash(direccion);
 			}
 			else{
 				System.exit(0);
