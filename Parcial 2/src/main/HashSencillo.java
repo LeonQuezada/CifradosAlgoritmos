@@ -19,7 +19,8 @@ public class HashSencillo {
 		String entrada;
 		while(true){
 			System.out.println("1.- Obtener hash de un archivo: ");
-			System.out.println("2.- Salir");
+			System.out.println("2.- Comparar dos hash");
+			System.out.println("3.- Salir");
 			entrada = sc.nextLine();
 			
 			if(entrada.trim().startsWith("1")){
@@ -30,7 +31,19 @@ public class HashSencillo {
 				direccion = sc.nextLine();
 				hCore.hash(direccion);
 			}
-			else{
+			else
+			if(entrada.trim().startsWith("2")){
+				//llamar a HashCore.Hash();
+				hCore = new HashCore();
+				String direccionHash1;
+				String direccionHash2;
+				System.out.println("Inserte la direccion del Primer Hash");
+				direccionHash1 = sc.nextLine();
+				System.out.println("Inserte la direccion del Segundo Hash");
+				direccionHash2 = sc.nextLine();
+				System.out.println(hCore.hashComparar(direccionHash1, direccionHash2));
+			}
+			{
 				System.exit(0);
 			}
 			

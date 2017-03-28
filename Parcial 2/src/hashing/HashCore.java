@@ -63,6 +63,21 @@ public class HashCore {
 		return archivoBytes;
 	}
 	
+	private byte[] serializa2(File f){
+		byte[] archivoBytes;
+		archivoBytes = new byte[(int)f.length()];
+		try {
+			FileInputStream fis = new FileInputStream(f);
+			fis.read(archivoBytes);
+			fis.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return archivoBytes;
+	}
+	
 	//5
 	private void dividirArreglo(byte[] arreglo){
 		int size;
@@ -97,13 +112,50 @@ public class HashCore {
 	//7
 	private void imprimirXOR() throws IOException{
 		try {
-			FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir")+"\\hash.dat");
+			FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir")+"\\datos");
 			fos.write(arregloC);
 			fos.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	
+	public boolean hashComparar(String a, String b){
+		File hash1, hash2;
+		
+		try{
+			hash1 = new File(a);
+			hash2 = new File(b);
+			
+			byte[] arHash1 = serializa2(hash1);
+			byte[] arHash2 = serializa2(hash2);
+			
+			return compararHash(arHash1,arHash2);
+			
+			
+		}catch(Exception w){
+			w.printStackTrace();
+			return false;
+		}
+	}
+	
+	
+	private boolean compararHash(byte[] hash1, byte[] hash2){
+		boolean sonIguales = true;
+		
+		if(hash1.length != hash2.length){
+			return false;
+		}
+		
+		for(int i = 0 ; i < hash1.length; i++){
+			if(hash1[i] != hash2[i]){
+				return false;
+			}
+		}
+		
+		return sonIguales;
 	}
 
 }
