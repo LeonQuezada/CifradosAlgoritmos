@@ -1,5 +1,6 @@
 package main;
 
+import java.io.IOException;
 import java.util.Scanner;
 import hashing.HashCore;
 
@@ -11,7 +12,7 @@ public class HashSencillo {
 	 * 1.- Pregunta por el nombre del archivo a hashear
 	 * 2.- Pregunta por el archivo a verificar y el archivo .dat.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		HashCore hCore = new HashCore();
 		Scanner sc = new Scanner(System.in);

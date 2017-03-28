@@ -1,6 +1,8 @@
 package hashing;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -23,7 +25,7 @@ public class HashCore {
 	 * 7.- Se guarda el hash en un archivo .dat
 	 */
 	//1
-	public void hash(String direccion){
+	public void hash(String direccion) throws IOException{
 		//2
 		abrirArchivo(direccion);
 		//3 - 4
@@ -32,6 +34,7 @@ public class HashCore {
 		//5
 		dividirArreglo(archivoBytes);
 		xorArray();
+		imprimirXOR();
 		
 		
 	}
@@ -86,12 +89,21 @@ public class HashCore {
 		System.out.println("vacio:"+arregloC.length);
 		for(int i = 0; i < arregloC.length;i++){
 			arregloC[i] = (byte) (arregloA[i] ^ arregloB[i]);
-			System.out.println("arregloC: "+arregloC[i]+"\narregloA: "+arregloA[i]+"\narregloB: "+arregloB[i]);
+			//System.out.println("arregloC: "+arregloC[i]+"\narregloA: "+arregloA[i]+"\narregloB: "+arregloB[i]);
 		}
 		
 	}
 	
 	//7
-	private void imprimirXOR(){}
+	private void imprimirXOR() throws IOException{
+		try {
+			FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir")+"\\hash.dat");
+			fos.write(arregloC);
+			fos.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }
