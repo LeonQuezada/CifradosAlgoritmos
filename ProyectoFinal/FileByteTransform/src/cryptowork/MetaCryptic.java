@@ -2,24 +2,23 @@ package cryptowork;
 
 public class MetaCryptic {
 	
-	private String llave;
-	private byte[] carga;
+	private byte[] llave;
+	private MetaArchivo ma;
 	
-	public String getLlave(){
+	public MetaArchivo getMa(){
+		return ma;
+	}
+	
+	public void setMa(MetaArchivo metaA){
+		ma = metaA;
+	}
+	
+	public byte[] getLlave(){
 		return llave;
 	}
 	
-	public byte[] getCarga(){
-		return carga;
-	}
-	
-	public void setLlave(String cad){
+	public void setLlave(byte[] cad){
 		llave = cad;
 	}
-	
-	public void setCarga(byte[] bytes){
-		carga = bytes;
-	}
-	
 	
 }
